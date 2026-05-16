@@ -13,7 +13,8 @@ const portfolio = {
       { label: "Projects", href: "#projects" },
       { label: "Education", href: "#education" },
     ],
-    cta: { label: "Hire Me", href: "mailto:asifdar.cuk@gmail.com" },
+    resume: "https://drive.google.com/file/d/1ru3aGt76HbHWKc3UXMvmoUWYsBcuavTJ/view",
+    cta: { label: "Hire Me", href: "mailto:darasif.cse@gmail.com" },
   },
   hero: {
     eyebrow: "Available for opportunities",
@@ -23,7 +24,7 @@ const portfolio = {
       "Full-stack engineer with 4+ years building scalable, production-grade applications. Specializing in Angular, Java Spring Boot, and Node.js with a passion for clean architecture and measurable impact.",
     ctas: [
       { label: "View My Work", href: "#experience", className: "btn-primary" },
-      { label: "Get In Touch", href: "mailto:asifdar.cuk@gmail.com", className: "btn-outline" },
+      { label: "Get In Touch", href: "mailto:darasif.cse@gmail.com", className: "btn-outline" },
     ],
     stats: [
       { value: "4+", color: "accent", label: "Years of Experience" },
@@ -45,7 +46,7 @@ const portfolio = {
       "I thrive in Agile teams, mentor junior engineers, and champion clean architecture practices. When I'm not shipping features, I'm learning, building, and refining my craft.",
     ],
     contacts: [
-      { label: "email", href: "mailto:asifdar.cuk@gmail.com", text: "asifdar.cuk@gmail.com" },
+      { label: "email", href: "mailto:darasif.cse@gmail.com", text: "darasif.cse@gmail.com" },
       { label: "phone", href: "tel:+919086811422", text: "+91 9086811422" },
       { label: "github", href: "https://github.com/AsifAhmadDar", text: "github.com/AsifAhmadDar", external: true },
       { label: "linkedin", href: "https://linkedin.com/in/iamasifdar", text: "linkedin.com/in/iamasifdar", external: true },
@@ -92,8 +93,10 @@ const portfolio = {
       title: "Cloud & DevOps",
       tags: [
         ["AWS EC2", "tag-gold"],
+        ["AWS ECR", "tag-gold"],
         ["AWS S3", "tag-gold"],
         ["AWS CodePipeline", "tag-gold"],
+        ["Cloudflare R2", "tag-gold"],
         ["GCP", "tag-gold"],
         ["Docker", "tag-gold"],
         ["Jenkins", "tag-muted"],
@@ -173,7 +176,7 @@ const portfolio = {
   ],
   projects: [
     {
-      index: "01 / Healthcare",
+      index: "00 / Healthcare",
       title: "Radiology Workflow Platform",
       cardClass: "p1",
       desc: "Enterprise-grade radiology management system connecting 50+ healthcare facilities, built for diagnostic imaging, patient records, and report generation.",
@@ -191,7 +194,7 @@ const portfolio = {
       ],
     },
     {
-      index: "02 / Enterprise SaaS",
+      index: "01 / Enterprise SaaS",
       title: "Dynamic Forms Builder",
       cardClass: "p2",
       desc: "No-code form builder allowing drag-and-drop creation of complex forms with validation rules and automated workflows, adopted by 20+ enterprise clients.",
@@ -206,6 +209,27 @@ const portfolio = {
         ["NgRx", "tag-accent"],
         ["Node.js", "tag-green"],
         ["MongoDB", "tag-red"],
+      ],
+    },
+    {
+      index: "02 / Aviation",
+      title: "Avyanna Aviation",
+      cardClass: "p1",
+      desc: "Full-stack aviation platform developed with Angular and Node.js, designed for scalable operations and cloud-native deployments.",
+      highlights: [
+        "Angular frontend with modular component architecture",
+        "Node.js and MongoDB backend APIs",
+        "Containerized deployment using Docker and AWS ECR",
+        "Hosted on AWS EC2 with Cloudflare R2 object storage",
+      ],
+      stack: [
+        ["Angular", "tag-accent"],
+        ["Node.js", "tag-green"],
+        ["MongoDB", "tag-red"],
+        ["Docker", "tag-gold"],
+        ["AWS ECR", "tag-gold"],
+        ["AWS EC2", "tag-gold"],
+        ["Cloudflare R2", "tag-muted"],
       ],
     },
     {
@@ -247,7 +271,7 @@ const portfolio = {
     surname: "Dar",
     tagline: "// Senior Software Engineer - Full-Stack - Healthcare Tech",
     links: [
-      { href: "mailto:asifdar.cuk@gmail.com", label: "asifdar.cuk@gmail.com" },
+      { href: "mailto:darasif.cse@gmail.com", label: "darasif.cse@gmail.com" },
       { href: "tel:+919086811422", label: "+91 9086811422" },
       { href: "https://github.com/AsifAhmadDar", label: "GitHub", external: true },
       { href: "https://linkedin.com/in/iamasifdar", label: "LinkedIn", external: true },
@@ -269,6 +293,27 @@ function renderLink(link, className) {
   return '<a class="' + className + '" href="' + link.href + '"' + targetAttrs + ">" + link.label + "</a>";
 }
 
+function renderResumeLink(link) {
+  const targetAttrs = link.external ? ' target="_blank" rel="noreferrer"' : "";
+  return '<a class="nav-resume" href="' + link.href + '"' + targetAttrs + '>' + link.label + '<span class="resume-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 10.8L12 14.8L16 10.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></a>';
+}
+
+function normalizeResumeLink(resume) {
+  if (!resume) {
+    return null;
+  }
+
+  if (typeof resume === "string") {
+    return { label: "Resume", href: resume, external: true };
+  }
+
+  return {
+    label: resume.label || "Resume",
+    href: resume.href,
+    external: typeof resume.external === "boolean" ? resume.external : true,
+  };
+}
+
 function applyMeta(meta) {
   document.title = meta.title;
 
@@ -287,15 +332,20 @@ function buildPortfolio(data) {
     return;
   }
 
+  const resumeLink = normalizeResumeLink(data.nav.resume);
+
   app.innerHTML = `
     <nav>
       <a class="nav-logo" href="#hero">${data.nav.logo}</a>
       <ul class="nav-links">
         ${data.nav.links.map(function (tab) {
-          return "<li>" + renderLink(tab, "") + "</li>";
-        }).join("")}
+    return "<li>" + renderLink(tab, "") + "</li>";
+  }).join("")}
       </ul>
-      ${renderLink(data.nav.cta, "nav-cta")}
+      <div class="nav-actions">
+        ${resumeLink ? renderResumeLink(resumeLink) : ""}
+        ${renderLink(data.nav.cta, "nav-cta")}
+      </div>
     </nav>
 
     <div id="hero">
@@ -309,16 +359,16 @@ function buildPortfolio(data) {
           <p class="hero-tagline">${data.hero.tagline}</p>
           <div class="hero-ctas">
             ${data.hero.ctas.map(function (cta) {
-              return renderLink(cta, cta.className);
-            }).join("")}
+    return renderLink(cta, cta.className);
+  }).join("")}
           </div>
         </div>
 
         <div class="hero-right">
           <div class="stat-grid">
             ${data.hero.stats.map(function (stat) {
-              return '<div class="stat-card"><div class="stat-num ' + stat.color + '">' + stat.value + '</div><div class="stat-label">' + stat.label + "</div></div>";
-            }).join("")}
+    return '<div class="stat-card"><div class="stat-num ' + stat.color + '">' + stat.value + '</div><div class="stat-label">' + stat.label + "</div></div>";
+  }).join("")}
           </div>
           <div class="hero-badge">
             <div class="badge-dot"></div>
@@ -336,20 +386,20 @@ function buildPortfolio(data) {
       <div class="about-grid">
         <div class="about-text fade-in">
           ${data.about.paragraphs.map(function (paragraph) {
-            return "<p>" + paragraph + "</p>";
-          }).join("")}
+    return "<p>" + paragraph + "</p>";
+  }).join("")}
           <div class="about-contact">
             ${data.about.contacts.map(function (item) {
-              const attrs = item.external ? ' target="_blank" rel="noreferrer"' : "";
-              return '<a class="contact-item" href="' + item.href + '"' + attrs + '><span class="ci-label">' + item.label + "</span>" + item.text + "</a>";
-            }).join("")}
+    const attrs = item.external ? ' target="_blank" rel="noreferrer"' : "";
+    return '<a class="contact-item" href="' + item.href + '"' + attrs + '><span class="ci-label">' + item.label + "</span>" + item.text + "</a>";
+  }).join("")}
           </div>
         </div>
         <div class="fade-in">
           <div class="certs-block">
             ${data.about.certifications.map(function (cert) {
-              return '<div class="cert-item"><div class="cert-icon">' + cert.icon + '</div><div><div class="cert-name">' + cert.name + '</div><div class="cert-by">' + cert.by + "</div></div></div>";
-            }).join("")}
+    return '<div class="cert-item"><div class="cert-icon">' + cert.icon + '</div><div><div class="cert-name">' + cert.name + '</div><div class="cert-by">' + cert.by + "</div></div></div>";
+  }).join("")}
           </div>
         </div>
       </div>
@@ -360,8 +410,8 @@ function buildPortfolio(data) {
       <h2 class="section-title">Tech Stack</h2>
       <div class="skills-layout fade-in">
         ${data.skills.map(function (group) {
-          return '<div class="skill-group"><div class="skill-group-title">' + group.title + '</div><div class="skill-tags">' + renderTags(group.tags) + "</div></div>";
-        }).join("")}
+    return '<div class="skill-group"><div class="skill-group-title">' + group.title + '</div><div class="skill-tags">' + renderTags(group.tags) + "</div></div>";
+  }).join("")}
       </div>
     </section>
 
@@ -370,8 +420,8 @@ function buildPortfolio(data) {
       <h2 class="section-title">Where I've Worked</h2>
       <div class="exp-timeline">
         ${data.experience.map(function (item) {
-          return '<div class="exp-item fade-in"><div class="exp-meta"><div class="exp-period">' + item.period + '</div><div class="exp-company">' + item.company + '</div><div class="exp-location">' + item.location + '</div></div><div class="exp-content"><div class="exp-role">' + item.role + (item.current ? '<span class="current-badge">Current</span>' : '') + '</div><ul class="exp-bullets">' + item.bullets.map(function (bullet) { return '<li>' + bullet + '</li>'; }).join('') + '</ul><div class="exp-stack">' + renderTags(item.stack) + '</div></div></div>';
-        }).join("")}
+    return '<div class="exp-item fade-in"><div class="exp-meta"><div class="exp-period">' + item.period + '</div><div class="exp-company">' + item.company + '</div><div class="exp-location">' + item.location + '</div></div><div class="exp-content"><div class="exp-role">' + item.role + (item.current ? '<span class="current-badge">Current</span>' : '') + '</div><ul class="exp-bullets">' + item.bullets.map(function (bullet) { return '<li>' + bullet + '</li>'; }).join('') + '</ul><div class="exp-stack">' + renderTags(item.stack) + '</div></div></div>';
+  }).join("")}
       </div>
     </section>
 
@@ -380,8 +430,8 @@ function buildPortfolio(data) {
       <h2 class="section-title">What I've Built</h2>
       <div class="projects-grid">
         ${data.projects.map(function (project) {
-          return '<div class="project-card ' + project.cardClass + ' fade-in"><div class="project-num">' + project.index + '</div><div class="project-title">' + project.title + '</div><p class="project-desc">' + project.desc + '</p><ul class="project-highlights">' + project.highlights.map(function (highlight) { return '<li>' + highlight + '</li>'; }).join('') + '</ul><div class="exp-stack">' + renderTags(project.stack) + '</div></div>';
-        }).join("")}
+    return '<div class="project-card ' + project.cardClass + ' fade-in"><div class="project-num">' + project.index + '</div><div class="project-title">' + project.title + '</div><p class="project-desc">' + project.desc + '</p><ul class="project-highlights">' + project.highlights.map(function (highlight) { return '<li>' + highlight + '</li>'; }).join('') + '</ul><div class="exp-stack">' + renderTags(project.stack) + '</div></div>';
+  }).join("")}
       </div>
     </section>
 
@@ -407,8 +457,8 @@ function buildPortfolio(data) {
       <h2 class="section-title">Awards & Certifications</h2>
       <div class="awards-grid">
         ${data.awards.map(function (award) {
-          return '<div class="award-card fade-in"><div class="award-emoji">' + award.emoji + '</div><div class="award-title">' + award.title + '</div><div class="award-by">' + award.by + '</div></div>';
-        }).join("")}
+    return '<div class="award-card fade-in"><div class="award-emoji">' + award.emoji + '</div><div class="award-title">' + award.title + '</div><div class="award-by">' + award.by + '</div></div>';
+  }).join("")}
       </div>
     </section>
 
@@ -417,8 +467,8 @@ function buildPortfolio(data) {
       <div class="footer-tagline">${data.footer.tagline}</div>
       <div class="footer-links">
         ${data.footer.links.map(function (link) {
-          return renderLink(link, "");
-        }).join("")}
+    return renderLink(link, "");
+  }).join("")}
       </div>
       <div class="footer-copy">${data.footer.copy}</div>
     </footer>
