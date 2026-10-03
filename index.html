@@ -1,17 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asif Dar — Senior Software Engineer</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%236c63ff'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' fill='white'%3EAD%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Asif Dar is a senior full-stack engineer building scalable MEAN and Spring Boot systems from Bengaluru.">
+  <title>Asif Dar | Full-stack systems engineer</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<div id="app"></div>
-<script src="index.js"></script>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top"
+      aria-label="Asif Dar home">
+      <span>AD</span><strong>Asif Dar</strong>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="#profile">Profile</a><a href="#work">Selected
+        work</a><a href="#stack">Stack</a><a href="#contact">Contact</a></nav><a class="header-link"
+      href="mailto:darasif.cse@gmail.com">Start a conversation <span>↗</span></a><button class="menu-toggle"
+      type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <main>
+    <section class="hero section-pad" id="profile"><canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> Senior software engineer / Bengaluru, India</p>
+        <h1>Systems that feel <em>simple.</em><br><span>Built to scale.</span></h1>
+        <p class="hero-intro">I design and ship reliable digital products across the MEAN stack, Java Spring Boot, SQL
+          Server, cloud infrastructure, and AI-assisted engineering workflows.</p>
+        <div class="hero-actions"><a class="button button-solid" href="#work">Explore the work <span>↘</span></a><a
+            class="text-link" href="mailto:darasif.cse@gmail.com">darasif.cse@gmail.com <span>↗</span></a></div>
+      </div>
+      <div class="hero-object" data-tilt aria-label="Interactive architecture visual">
+        <div class="object-meta top-left">01 / architecture<br><span>observable systems</span></div>
+        <div class="object-meta bottom-right">MEAN + JAVA<br><span>full-stack by default</span></div>
+        <div class="orbital orbital-a"></div>
+        <div class="orbital orbital-b"></div>
+        <div class="orbital orbital-c"></div>
+        <div class="system-core"><img src="assets/profile.png" alt="Portrait of Asif Dar"><span
+            class="core-label">AD</span></div>
+        <div class="node node-a">API</div>
+        <div class="node node-b">DB</div>
+        <div class="node node-c">UI</div>
+        <div class="node node-d">AI</div>
+      </div>
+      <div class="hero-footer"><span>04+ years in production</span><span>10k+ concurrent users</span><span>31% faster
+          access</span><span class="footer-line"></span><span>Scroll to inspect</span></div>
+    </section>
+    <section class="signal-strip section-pad reveal" aria-label="Career highlights">
+      <div class="signal-copy"><span class="section-index">01</span>
+        <p>Signal over noise</p>
+      </div>
+      <div class="signal-value"><strong>35%</strong><span>performance gain<br>through caching,<br>lazy loading +
+          refactoring</span></div>
+      <div class="signal-value"><strong>60%</strong><span>testing cycle reduction<br>with better automation<br>and AI
+          assistance</span></div>
+      <div class="signal-value"><strong>50+</strong><span>healthcare facilities<br>supported by a radiology<br>workflow
+          platform</span></div>
+    </section>
+    <section class="profile section-pad" id="about">
+      <div class="section-heading reveal"><span class="section-index">02</span>
+        <h2>Crafting the layer<br><em>between intent and impact.</em></h2>
+      </div>
+      <div class="profile-layout">
+        <div class="profile-statement reveal">
+          <p>Senior Software Engineer with 4+ years of full-stack experience. I turn complex operational problems into
+            maintainable products with a clear interface, durable APIs, and infrastructure teams can trust.</p>
+          <p>My sweet spot is where product thinking meets systems thinking: shaping Angular experiences, composing
+            Node.js or Spring Boot services, tuning data access, and getting the release path right.</p><a
+            class="text-link" href="https://www.linkedin.com/in/iamasifdar" target="_blank" rel="noreferrer">More on
+            LinkedIn <span>↗</span></a>
+        </div>
+        <div class="principles reveal">
+          <div class="principle"><span>01</span><strong>Make complexity legible</strong>
+            <p>Good architecture helps every teammate move faster.</p>
+          </div>
+          <div class="principle"><span>02</span><strong>Measure the experience</strong>
+            <p>Performance is a product feature, not a final polish.</p>
+          </div>
+          <div class="principle"><span>03</span><strong>Use tools with intent</strong>
+            <p>Copilot and GenAI accelerate the work. Judgment owns the result.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="work section-pad" id="work">
+      <div class="section-heading reveal"><span class="section-index">03</span>
+        <h2>Selected work<br><em>with measurable weight.</em></h2>
+        <p>Three production environments. Different domains. The same obsession with clarity, speed, and resilience.</p>
+      </div>
+      <div class="project-list">
+        <article class="project reveal">
+          <div class="project-number">01</div>
+          <div class="project-main">
+            <p class="project-type">Healthcare / CitiusTech / 2024 to present</p>
+            <h3>Radiology Workflow<br>Management System</h3>
+            <p class="project-description">Enterprise radiology workflow for 50+ healthcare facilities, with DICOM
+              imaging, HL7 interfaces, PACS integration, and microservices processing 10,000+ reports daily.</p>
+            <div class="project-tags">
+              <span>Angular</span><span>TypeScript</span><span>RxJS</span><span>NgRx</span><span>Node.js</span><span>Docker</span><span>AWS</span>
+            </div>
+          </div>
+          <div class="project-proof"><strong>31%</strong><span>faster clinician<br>report
+              access</span><strong>85%</strong><span>unit test coverage<br>with Jasmine + Karma</span><button
+              class="project-toggle" type="button" aria-expanded="false">View system notes <span>+</span></button></div>
+          <div class="project-notes" hidden>
+            <p><b>Role</b> Led the Angular and TypeScript frontend while integrating services across a high-volume
+              clinical workflow.</p>
+            <p><b>Delivery</b> Refactored legacy components, improved loading behavior from 4.2 seconds to 2.9 seconds,
+              and documented APIs and architecture decisions in Agile delivery cycles.</p>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-number">02</div>
+          <div class="project-main">
+            <p class="project-type">Insurance / LeLafe IT Solutions / 2021 to 2024</p>
+            <h3>Insurance Broker<br>Marketplace</h3>
+            <p class="project-description">A broker and agent portal with dynamic themes, agent websites, Chubb product
+              selling, license registration, renewal checks, and onboarding workflows.</p>
+            <div class="project-tags">
+              <span>Angular</span><span>NgRx</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST
+                APIs</span>
+            </div>
+          </div>
+          <div class="project-proof"><strong>70%</strong><span>less development time<br>with a forms
+              engine</span><strong>20+</strong><span>enterprise clients<br>served by the UI library</span><button
+              class="project-toggle" type="button" aria-expanded="false">View system notes <span>+</span></button></div>
+          <div class="project-notes" hidden>
+            <p><b>Role</b> Designed reusable Angular components and the dynamic forms and workflow engine that let
+              clients build custom forms without code.</p>
+            <p><b>Delivery</b> Built RESTful services, integrated payments and notification APIs, and shipped consistent
+              environments through Docker, Nginx, and AWS EC2.</p>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-number">03</div>
+          <div class="project-main">
+            <p class="project-type">Construction / LeLafe IT Solutions / Azure</p>
+            <h3>Tender & Bid<br>Management Platform</h3>
+            <p class="project-description">A platform for cost tracking, document collaboration, vendor evaluation, and
+              construction bidding workflows, with secure document storage on Azure Blob Storage.</p>
+            <div class="project-tags"><span>Angular</span><span>Node.js</span><span>Express</span><span>SQL
+                Server</span><span>Azure</span><span>Blob Storage</span></div>
+          </div>
+          <div class="project-proof"><strong>10k+</strong><span>users supported<br>in live
+              environments</span><strong>&lt;3s</strong><span>load times through<br>caching + lazy loading</span><button
+              class="project-toggle" type="button" aria-expanded="false">View system notes <span>+</span></button></div>
+          <div class="project-notes" hidden>
+            <p><b>Role</b> Built the core workflows across Angular, Node.js, Express, and SQL Server.</p>
+            <p><b>Delivery</b> Deployed on Azure with Blob Storage, focusing on secure collaboration and fast access to
+              bid documents.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="stack section-pad" id="stack">
+      <div class="section-heading reveal"><span class="section-index">04</span>
+        <h2>The toolkit is<br><em>part of the thinking.</em></h2>
+        <p>Comfortable across the interface, service, data, and delivery layers.</p>
+      </div>
+      <div class="stack-layout">
+        <div class="stack-orbit reveal" data-tilt>
+          <div class="stack-ring ring-one"></div>
+          <div class="stack-ring ring-two"></div>
+          <div class="stack-center">FULL<br><span>STACK</span></div><span class="stack-node n1">Angular</span><span
+            class="stack-node n2">Java</span><span class="stack-node n3">SQL Server</span><span
+            class="stack-node n4">AWS</span><span class="stack-node n5">AI</span>
+        </div>
+        <div class="stack-list reveal">
+          <div><span>01</span><strong>Interfaces</strong>
+            <p>Angular 2+, TypeScript, JavaScript ES6+, RxJS, NgRx, HTML5, CSS3, SCSS, responsive design.</p>
+          </div>
+          <div><span>02</span><strong>Services + data</strong>
+            <p>Node.js, Express.js, Java Spring Boot, REST APIs, WebSocket, MongoDB, SQL Server, MySQL, PostgreSQL
+              basics.</p>
+          </div>
+          <div><span>03</span><strong>Delivery</strong>
+            <p>AWS EC2, S3, Route 53, CodePipeline, Azure, Docker, Nginx, Git, CI/CD, bundle optimization.</p>
+          </div>
+          <div><span>04</span><strong>Quality + leverage</strong>
+            <p>Jasmine, Karma, Jest, Playwright, Selenium BDD, GitHub Copilot, GenAI prompt engineering, Jira,
+              Confluence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="trajectory section-pad">
+      <div class="section-heading reveal"><span class="section-index">05</span>
+        <h2>A trajectory built<br><em>in production.</em></h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-entry"><span>Mar 2024 to present</span>
+          <div>
+            <h3>Senior Software Engineer</h3>
+            <p>CitiusTech Healthcare Technologies, Bengaluru</p><small>Leading frontend architecture and microservice
+              integrations for clinical workflows.</small>
+          </div>
+        </div>
+        <div class="timeline-entry"><span>Oct 2021 to Mar 2024</span>
+          <div>
+            <h3>Software Engineer</h3>
+            <p>LeLafe IT Solutions, Jammu and Kashmir</p><small>Built reusable enterprise platforms, cloud deployments,
+              and a component library for 20+ clients.</small>
+          </div>
+        </div>
+        <div class="timeline-entry"><span>Nov 2021</span>
+          <div>
+            <h3>B.Tech, Computer Science & Engineering</h3>
+            <p>Central University, Kashmir</p><small>Foundation in computer science, software systems, and problem
+              solving.</small>
+          </div>
+        </div>
+      </div>
+      <div class="credentials reveal"><span>Recognised for</span><strong>Angular Certified
+          Developer</strong><strong>Best Performance Award Q4 2025</strong><strong>Google Analytics
+          Certification</strong><strong>AWS Cloud Practitioner Badge</strong></div>
+    </section>
+    <section class="contact section-pad" id="contact">
+      <div class="contact-shell reveal">
+        <div><span class="section-index">06</span>
+          <h2>Have a hard problem<br>worth solving?</h2>
+          <p>Let’s talk about the product, the constraints, and the cleanest path to production.</p>
+        </div>
+        <div class="contact-actions"><a class="button button-solid" href="mailto:darasif.cse@gmail.com">Email Asif
+            <span>↗</span></a><a class="button button-outline" href="tel:+919086811422">+91 9086811422
+            <span>↗</span></a>
+          <div class="contact-links"><a href="https://github.com/iamasifdar" target="_blank" rel="noreferrer">GitHub
+              ↗</a><a href="https://www.linkedin.com/in/iamasifdar" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 Asif Dar</span><span>Built with intent in Bengaluru</span><a href="#top">Back
+      to top ↑</a></footer>
+  <script src="script.js"></script>
 </body>
+
 </html>
